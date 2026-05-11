@@ -54,9 +54,18 @@ def two_sum(nums: List[int], target: int) -> List[int]:
         seen[num] = i
     return []
 
+def two_sum_v2(nums, target):
+    seen = {}
+    for i, num in enumerate(nums):
+        num2 = target - num 
+        if num2 in seen:
+            return [seen[num2], i]
+        seen[num] = i
+    return []
+
 
 if __name__ == "__main__":
-    assert two_sum([2, 7, 11, 15], 9) == [0, 1]
-    assert two_sum([3, 2, 4], 6) == [1, 2]
-    assert two_sum([3, 3], 6) == [0, 1]
+    assert two_sum_v2([2, 7, 11, 15], 9) == [0, 1]
+    assert two_sum_v2([3, 2, 4], 6) == [1, 2]
+    assert two_sum_v2([3, 3], 6) == [0, 1]
     print("All tests passed.")
